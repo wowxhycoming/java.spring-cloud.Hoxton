@@ -1,0 +1,18 @@
+server:
+  port: 37004
+spring:
+  application:
+    name: album-provider
+  jackson:
+    default-property-inclusion: non_null
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}/t2
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 31
+info:
+  app.name: movie-provider
+  compony.name: me.xhy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$

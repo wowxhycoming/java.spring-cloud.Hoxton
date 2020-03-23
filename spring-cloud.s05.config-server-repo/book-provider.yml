@@ -1,0 +1,21 @@
+server:
+  port: 37001
+spring:
+  cloud:
+    config:
+      #allow-override: true # 默认值 true, 远程配置是否可被覆盖
+      #override-system-properties: true # 默认值 true, 远程配置是否可覆盖本地配置
+      override-none: true # 默认值 false , 远程配置是否不覆盖任何配置，为 false 就是远程资配置盖一切
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 31
+info:
+  app.name: book-provider
+  compony.name: me.xhy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$ securite
+#  secret: '{cipher}AQBOSnzO53Rfm8m6sYyPE0xfyaTHEouzcyB3CDyklyIiC0iEfMr3L3+t8HC/buKQciaVrpHWSuJU4XYP0r2VfzRy5wu7z+iE5s6ix8Sl4DmH6aMJpXFdsxHF1GcCVh7xl7NRQ2+Og7ho1vYXy5ohZXzXOw6i8FBQ9eSJiE38PuO5jLamn1DK6pAfWZGN2Js21A+TuPbTAxKGyWawbMv36R/dpvQ32EyzgZ179h+rBHHZ7J0OBqRGeD4Ms6GvcqYp9es00B3NfO1p0keMNZV9H8rHil8nc9XXMm8w1BBuz+BrBYcE9c02O7zv+6peniq3tIJIjoydRhZN+yZlVNldiqvoysNEHs6h0jshq3bonEjLKFJgJE1iLiF7NQNJejBkKfA='
+  version: 3
