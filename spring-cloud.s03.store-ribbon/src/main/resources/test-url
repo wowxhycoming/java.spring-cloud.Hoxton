@@ -1,0 +1,2 @@
+负载均衡 查看服务端端口
+http://localhost:31001/store-ribbon/album-provider-port

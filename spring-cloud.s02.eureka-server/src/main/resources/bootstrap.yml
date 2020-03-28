@@ -1,0 +1,5 @@
+server:
+  port: 34001 # 当前服务启动绑定的端口
+spring:
+  profiles:
+    active: dev # 指定当前环境，对于配置文件，会用 application-dev.yml 中有的值覆盖 application.yml 的值

@@ -1,0 +1,14 @@
+server:
+  port: 31002
+spring:
+  application:
+    name: store-feign
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123123@localhost:34001/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}/${spring.application.name}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30

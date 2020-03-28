@@ -1,0 +1,4 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:123123@eureka-server-1:34001/eureka/,http://user:123123@eureka-server-2:34002/eureka/,http://user:123123@eureka-server-3:34003/eureka/

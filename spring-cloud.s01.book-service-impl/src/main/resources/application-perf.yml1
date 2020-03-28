@@ -1,0 +1,6 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-1:34001/eureka/,http://eureka-server-2:34002/eureka/,http://eureka-server-3:34003/eureka/
+  environment: perf
+  datacenter: personal-computer

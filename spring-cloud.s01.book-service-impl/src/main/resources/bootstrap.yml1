@@ -1,0 +1,5 @@
+server:
+  port: 33004
+spring:
+  profiles:
+    active: dev

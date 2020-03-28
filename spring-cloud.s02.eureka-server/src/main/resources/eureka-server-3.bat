@@ -1,0 +1,1 @@
+java -jar spring-cloud.s02.eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=perf --server.port=33003 --eureka.instance.hostname=eureka-server-3

@@ -1,0 +1,27 @@
+server:
+  port: 37001
+spring:
+  profiles:
+    active: dev
+  application:
+    name: book-provider
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
+---
+spring:
+  profiles: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:123123@eureka-server-1:34001/eureka/
+---
+spring:
+  profiles: test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server-1:34001/eureka/,http://eureka-server-2:34002/eureka/,http://eureka-server-3:34003/eureka/

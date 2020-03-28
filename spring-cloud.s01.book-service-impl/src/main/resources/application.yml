@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: book-provider
+eureka:
+  instance:
+    hostname: book-provider-1
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true # 是否注册到 eureka-server ，此处为 true , 作为一个 service provider 应当将自己注册到以达到服务化
+    fetch-registry: false # 是否从  eureka-server 下载服务列表，不消费服务可以不下载服务列表

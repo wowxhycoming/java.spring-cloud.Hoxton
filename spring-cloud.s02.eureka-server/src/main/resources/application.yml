@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka-server # 服务名
+eureka:
+  server:
+    enable-self-preservation: false # 是否开启自我保护
+    eviction-interval-timer-in-ms: 10000 # 剔除心跳超时的节点阀值，默认 60000， 单位是 ms
+  client: # 客户端设置
+    register-with-eureka: false # 是否注册到 eureka-server
+    fetch-registry: false # 是否从  eureka-server 下载服务列表
+  instance: # 实例设置
+    hostname: eureka-server-1 # 实例主机名，显示在UI注册列表中
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} # 实例名，UI注册列表中实例名对应的actuator的url
+    prefer-ip-address: true # 调用服务的时候使用 IP，UI服务实例地址为 IP
+
