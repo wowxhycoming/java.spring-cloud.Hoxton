@@ -5,6 +5,10 @@ spring:
     name: store-ribbon
   jackson:
     default-property-inclusion: non_null
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
 eureka:
   client:
     service-url:
@@ -14,6 +18,32 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+ribbon: # ribbon 全局设置
+  ConnectTimeout: 1 # 请求连接的超时时间，#Http请求中的connectTimeout，默认 1000ms
+  ReadTimeout: 1 # 请求处理的超时时间，Http请求中的socketTimeout，默认1000ms
+  #设置为true时，会对所有的请求进行重试，若为false只会对get请求进行重试
+  #如果服务器接口没做幂等性，会产生不好的结果，所以OkToRetryOnAllOperations慎用。
+  #默认情况下,GET方式请求无论是连接异常还是读取异常,都会进行重试
+  #非GET方式请求,只有连接异常时,才会进行重试
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 0 # 对当前已失败实例的重试次数，默认为 0
+  MaxAutoRetriesNextServer: 1 # 切换实例的重试次数，默认为 1
+  MaxTotalConnections: 500 # 最大连接数
+  MaxConnectionsPerHost: 500 # 每个host最大连接数
+  #为 true 时关闭懒加载
+  #Ribbon进行客户端负载均衡的Client并不是在服务启动的时候就初始化好的，
+  #而是在调用的时候才会去创建相应的Client，所以第一次调用的耗时不仅仅包含发送HTTP请求的时间，还包含了创建RibbonClient的时间
+  #这样一来如果创建时间速度较慢，同时设置的超时时间又比较短的话，第一次请求很容易超时
+  eager-load:
+    enabled: false
+    #指定需要关闭懒加载的服务名
+    clients: eureka-client
+
+# 对某个客户端的 局部 配置
+#album-provider:
+#  ribbon: # ribbon 的局部配置
+#    ConnectTimeout: 1
+#    ReadTimeout: 1
 info:
   app.name: ${spring.application.name}
   compony.name: me.xhy

@@ -11,7 +11,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 31
+    lease-expiration-duration-in-seconds: 30
 info:
   app.name: book-provider
   compony.name: me.xhy

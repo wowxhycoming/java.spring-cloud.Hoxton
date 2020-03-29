@@ -64,7 +64,14 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
+        <!-- analyze placeholder -->
+        <configuration>
+          <delimiters>
+            <delimiter>$</delimiter>
+          </delimiters>
+        </configuration>
         <executions>
+          <!-- resource copy-->
           <execution>
             <id>copy-resources</id>
             <phase>validate</phase>

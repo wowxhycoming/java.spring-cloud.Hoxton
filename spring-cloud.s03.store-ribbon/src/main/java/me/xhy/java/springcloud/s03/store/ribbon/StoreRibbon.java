@@ -12,6 +12,8 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -22,15 +24,25 @@ import org.springframework.web.client.RestTemplate;
  */
 @ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = IgnoreScan.class))
 @RibbonClient(name = "album-provider", configuration = RibbonPartialStrategyRoundRobin.class)
+@EnableRetry
 public class StoreRibbon {
   public static void main(String[] args) {
     SpringApplication.run(StoreRibbon.class, args);
   }
 
-  @Bean // 向 IOC 容器注入一个 bean，名字是 restTemplate
-  @LoadBalanced // restTemplate 开启负载均衡的功能
+//  @Bean // 向 IOC 容器注入一个 bean，名字是 restTemplate
+//  @LoadBalanced // restTemplate 开启负载均衡的功能
+//  RestTemplate restTemplate() {
+//    return new RestTemplate();
+//  }
+
+  @Bean
+  @LoadBalanced
   RestTemplate restTemplate() {
-    return new RestTemplate();
+    HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+    factory.setConnectTimeout(1);
+    factory.setReadTimeout(1);
+    return new RestTemplate(factory);
   }
 
   @Bean
