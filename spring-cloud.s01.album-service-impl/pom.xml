@@ -27,12 +27,12 @@
 
     <dependency>
       <groupId>me.xhy</groupId>
-      <artifactId>spring-cloud.ms03.album-service-defi</artifactId>
+      <artifactId>spring-cloud.s01.album-service-defi</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>me.xhy</groupId>
-      <artifactId>spring-cloud.ms02.support</artifactId>
+      <artifactId>spring-cloud.s01.support</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
