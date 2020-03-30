@@ -1,10 +1,10 @@
 package me.xhy.java.springcloud.s01.provider.album.service;
 
 import me.xhy.java.springcloud.s01.provider.album.data.MusicData;
-import me.xhy.java.springcloud.ms03.provider.album.defi.AlbumServiceDefi;
-import me.xhy.java.springcloud.ms03.provider.album.entity.Album;
-import me.xhy.java.springcloud.ms03.provider.album.entity.Artist;
-import me.xhy.java.springcloud.ms03.provider.album.entity.Track;
+import me.xhy.java.springcloud.s01.provider.album.defi.AlbumServiceDefi;
+import me.xhy.java.springcloud.s01.provider.album.entity.Album;
+import me.xhy.java.springcloud.s01.provider.album.entity.Artist;
+import me.xhy.java.springcloud.s01.provider.album.entity.Track;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

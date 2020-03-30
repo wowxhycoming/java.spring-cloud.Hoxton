@@ -2,7 +2,7 @@ package me.xhy.java.springcloud.s01.provider.book.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import me.xhy.java.springcloud.s01.provider.book.data.BookData;
-import me.xhy.java.springcloud.ms03.provider.book.entity.Book;
+import me.xhy.java.springcloud.s01.provider.book.entity.Book;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

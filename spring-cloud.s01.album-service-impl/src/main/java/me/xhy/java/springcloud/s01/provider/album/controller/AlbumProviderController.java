@@ -1,8 +1,8 @@
 package me.xhy.java.springcloud.s01.provider.album.controller;
 
-import me.xhy.java.springcloud.ms03.provider.album.entity.Album;
-import me.xhy.java.springcloud.ms03.provider.album.entity.Artist;
-import me.xhy.java.springcloud.ms03.provider.album.entity.Track;
+import me.xhy.java.springcloud.s01.provider.album.entity.Album;
+import me.xhy.java.springcloud.s01.provider.album.entity.Artist;
+import me.xhy.java.springcloud.s01.provider.album.entity.Track;
 import me.xhy.java.springcloud.s01.provider.album.service.AlbumProviderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

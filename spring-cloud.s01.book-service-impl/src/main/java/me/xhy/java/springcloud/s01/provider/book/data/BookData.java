@@ -1,7 +1,7 @@
 package me.xhy.java.springcloud.s01.provider.book.data;
 
-import me.xhy.java.springcloud.ms02.support.instant.EastEightInstantUtil;
-import me.xhy.java.springcloud.ms03.provider.book.entity.Book;
+import me.xhy.java.springcloud.s01.support.instant.EastEightInstantUtil;
+import me.xhy.java.springcloud.s01.provider.book.entity.Book;
 
 import java.math.BigDecimal;
 import java.time.Month;
