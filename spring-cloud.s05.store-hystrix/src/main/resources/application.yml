@@ -18,6 +18,19 @@ ribbon:
 feign:
   hystrix:
     enabled: true
+
+hystrix:
+  command:
+    default: # 全局配置
+      execution:
+        isolation:
+          thread:
+            interruptOnTimeout: false # 是否开启超时，默认false，不建议开启
+            timeoutInMilliseconds: 1000 # hystrix超时时间，默认 1000 ms
+    isolationByThread: # <commandKey> 局部配置
+      circuitBreaker:
+        sleepWindowInMilliseconds: 5000 # 熔断休眠时间，默认 5000 ms。设置在回路被打开后，拒绝请求到再次尝试请求的时间。
+
 info:
   app.name: ${spring.application.name}
   compony.name: me.xhy

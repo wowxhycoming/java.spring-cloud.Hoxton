@@ -12,8 +12,13 @@ public class IsolationServiceImpl {
    */
   @HystrixCommand(
       fallbackMethod = "isolationFallback", // 降级方法
-      commandKey = "isolationByThread",
-      groupKey = "isolationByThreadGroup",
+      commandKey = "isolationByThread", // 配置属性的参数（该值将作为配置 key 的一部分，出现在配置文件中，起到定位局部配置的作用）
+      groupKey = "isolationByThreadGroup", // threadPoolKey 和 groupKey 的作用都是用来指定线程池的。
+      /*
+       * 先参考 threadPoolKey 后参考 groupKey。
+       * threadPoolKey 相同的方法，使用同一线程池；
+       * threadPoolKey 没有设置， groupKey 相同的方法，使用同一线程池。
+       */
       commandProperties = {
           @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD"), // 线程池模式， 默认值是 THREAD
           /*@HystrixProperty(name = "execution.timeout.enable", value = "true"), // HystrixCommand.run()的执行是否启用超时时间，默认为 true。
