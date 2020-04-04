@@ -12,3 +12,6 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+ribbon:
+  MaxAutoRetriesNextServer: 0
+  MaxAutoRetries: 0

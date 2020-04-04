@@ -5,10 +5,10 @@ spring:
     name: store-ribbon
   jackson:
     default-property-inclusion: non_null
-  cloud:
-    loadbalancer:
-      retry:
-        enabled: true
+#  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: true
 eureka:
   client:
     service-url:

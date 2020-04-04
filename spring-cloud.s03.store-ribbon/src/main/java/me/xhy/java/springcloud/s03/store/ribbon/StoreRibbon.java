@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.retry.annotation.EnableRetry;
+//import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -24,7 +24,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = IgnoreScan.class))
 @RibbonClient(name = "album-provider", configuration = RibbonPartialStrategyRoundRobin.class)
-@EnableRetry
+//@EnableRetry
 public class StoreRibbon {
   public static void main(String[] args) {
     SpringApplication.run(StoreRibbon.class, args);
@@ -40,8 +40,8 @@ public class StoreRibbon {
   @LoadBalanced
   RestTemplate restTemplate() {
     HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-    factory.setConnectTimeout(1);
-    factory.setReadTimeout(1);
+    factory.setConnectTimeout(1_000);
+    factory.setReadTimeout(1_000);
     return new RestTemplate(factory);
   }
 

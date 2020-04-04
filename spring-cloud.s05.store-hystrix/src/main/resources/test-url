@@ -1,0 +1,4 @@
+http://localhost:31003/hystrix/cf/always-exception
+http://localhost:31003/hystrix/cf/ribbon
+
+http://localhost:31003/hystrix/cf/feign

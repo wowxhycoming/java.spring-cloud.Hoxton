@@ -16,6 +16,11 @@ public class ServerPortController {
 
   @RequestMapping("server-port")
   public String serverPort() {
+    return "this is album service running on port " + serverPortConfiguration.getPort();
+  }
+
+  @RequestMapping("server-port-delay")
+  public String serverPortDelay() {
     try {
       TimeUnit.SECONDS.sleep(1);
     } catch (InterruptedException e) {
