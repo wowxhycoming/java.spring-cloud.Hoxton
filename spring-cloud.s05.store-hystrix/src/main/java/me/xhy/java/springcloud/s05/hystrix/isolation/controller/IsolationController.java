@@ -12,8 +12,13 @@ public class IsolationController {
   @Autowired
   IsolationServiceImpl isolationServiceImpl;
 
-  @RequestMapping("/isolation")
-  public String isolationRequest() {
-    return "";
+  @RequestMapping("/isolation/thread")
+  public String isolationByThread() {
+    return isolationServiceImpl.isolationByThread();
+  }
+
+  @RequestMapping("/isolation/semaphore")
+  public String isolationBySemaphore() {
+    return isolationServiceImpl.isolationBySemaphore();
   }
 }

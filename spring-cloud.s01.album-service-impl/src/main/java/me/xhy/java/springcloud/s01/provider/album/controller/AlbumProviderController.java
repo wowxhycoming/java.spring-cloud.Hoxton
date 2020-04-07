@@ -32,7 +32,7 @@ public class AlbumProviderController {
   }
 
   @GetMapping("/albums")
-  public List<Album> fetchBooks() {
+  public List<Album> fetchAlbums() {
     return albumProviderService.fetchAlbums();
   }
 
@@ -40,7 +40,7 @@ public class AlbumProviderController {
    * 参数列表中增加了 @RequestBody
    */
   @PostMapping("/albums/name")
-  public List<Album> fetchBooksByName(@RequestBody Album album) {
+  public List<Album> fetchAlbumsByName(@RequestBody Album album) {
     return albumProviderService.fetchAlbumsByName(album);
   }
 }

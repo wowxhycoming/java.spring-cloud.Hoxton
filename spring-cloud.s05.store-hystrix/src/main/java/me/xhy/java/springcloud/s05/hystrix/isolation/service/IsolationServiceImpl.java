@@ -4,6 +4,9 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class IsolationServiceImpl {
 
@@ -37,6 +40,11 @@ public class IsolationServiceImpl {
       }
   )
   public String isolationByThread() {
+    try {
+      TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     System.out.println("Service Thread -> " + Thread.currentThread().getName());
     return "this is a tagged method by Hystrix";
   }
@@ -55,6 +63,11 @@ public class IsolationServiceImpl {
       }
   )
   public String isolationBySemaphore() {
+    try {
+      TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     System.out.println("Service Thread -> " + Thread.currentThread().getName());
     return "this is a tagged method by Hystrix";
   }

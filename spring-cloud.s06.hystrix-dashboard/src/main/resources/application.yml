@@ -1,0 +1,14 @@
+server:
+  port: 35001
+spring:
+  application:
+    name: hystrix-dashboard
+  profiles:
+    active: dev
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://user:123123@localhost:34001/eureka/

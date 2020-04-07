@@ -18,7 +18,6 @@ ribbon:
 feign:
   hystrix:
     enabled: true
-
 hystrix:
   command:
     default: # 全局配置
@@ -29,8 +28,15 @@ hystrix:
             timeoutInMilliseconds: 1000 # hystrix超时时间，默认 1000 ms
     isolationByThread: # <commandKey> 局部配置
       circuitBreaker:
-        sleepWindowInMilliseconds: 5000 # 熔断休眠时间，默认 5000 ms。设置在回路被打开后，拒绝请求到再次尝试请求的时间。
-
+        sleepWindowInMilliseconds: 5000 # 熔断休眠时间，默认 5000 ms。设置在回路被打开后，拒绝请求到再次尝试请求的时间。休眠时间结束后，断路器变为半开时间
+circuitBreaker:
+  enabled: true # 是否开启熔断，默认值为 true
+  requestVolumeThreshold: 20 # 设置在一个滚动窗口中，打开断路器的最少请求数。 在已给窗口期失败多少个才会打开断路器。窗口设置属性 metrics.rollingStats.timeInMilliseconds , 断开的时间 sleepWindowInMilliseconds
+  sleepWindowInMilliseconds: 5000 # 同上面 hystrix 中的配置
+  errorThresholdPercentage: 50 # 开启熔断的失败率，默认值为 50%
+metrics:
+  rollingStats:
+    timeInMilliseconds: 10000 # 滚动窗口，默认为 10000 ms
 info:
   app.name: ${spring.application.name}
   compony.name: me.xhy
