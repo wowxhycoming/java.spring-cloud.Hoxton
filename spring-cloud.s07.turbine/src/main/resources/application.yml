@@ -1,0 +1,20 @@
+server:
+  port: 35002
+spring:
+  application:
+    name: turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123123@localhost:34001/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+turbine:
+  app-config: store-hystrix, book-provider #, another-provider  用逗号分隔需要监控的服务
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
+  combine-host-port: true

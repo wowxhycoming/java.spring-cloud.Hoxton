@@ -4,3 +4,5 @@ http://localhost:31003/hystrix/cf/ribbon
 http://localhost:31003/hystrix/cf/feign
 
 http://localhost:31003/hystrix/isolation/thread
+
+http://localhost:31003/actuator/hystrix.stream

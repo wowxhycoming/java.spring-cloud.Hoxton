@@ -7,7 +7,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableAutoConfiguration
 public class AlbumProvider {
   public static void main(String[] args) {
     SpringApplication.run(AlbumProvider.class, args);

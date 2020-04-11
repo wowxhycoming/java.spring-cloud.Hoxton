@@ -21,6 +21,7 @@
     <module>spring-cloud.s04.store-feign</module>
     <module>spring-cloud.s05.store-hystrix</module>
     <module>spring-cloud.s06.hystrix-dashboard</module>
+    <module>spring-cloud.s07.turbine</module>
 
   </modules>
 
